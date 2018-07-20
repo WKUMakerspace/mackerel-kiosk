@@ -32,7 +32,7 @@
                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modalCancelAppt">Sign Out</button>
+                    <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modalSignOut">Sign Out</button>
                 </div>
                 <div class="col-3"></div>
             </div>
@@ -115,7 +115,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modalSignInTitle">Schedule appointment...</h5>
+					<h5 class="modal-title" id="modalSignInTitle">Sign in...</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -126,9 +126,65 @@
             <div class="col-6 input text">
               <label for="signin-id">ID#</label>
               <input type="text" class="form-control" id="signin-id" name="wkuid"/>
+              <label for="signin-desc">Description</label>
+              <input type="text" class="form-control" id="signin-desc" name="desc"/>
             </div>
             <div class="col-6 input submit">
               <button type="submit" class="btn btn-success">Sign in</button>
+            </div>
+          </div>
+        </form>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalSignOut" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalSignOutTitle">Sign out...</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+        <form action="/signout" method="post" role="form">
+          {{ forms['signout'].csrf }}
+				<div class="modal-body form-group">
+            <div class="col-6 output text">
+              <label for="signout-id">ID#</label>
+              <input type="text" class="form-control" id="signout-id" name="wkuid"/>
+            </div>
+            <div class="col-6 output submit">
+              <button type="submit" class="btn btn-success">Sign out</button>
+            </div>
+          </div>
+        </form>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalCreateUser" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalCreateUserTitle">Create user...</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+        <form action="/user_create" method="post" role="form">
+          {{ forms['user_create'].csrf }}
+				<div class="modal-body form-group">
+            <div class="col-6 output text">
+              <label for="create-id">ID#</label>
+              <input type="text" class="form-control" id="create-id" name="wkuid"/>
+              <label for="create-first">First name</label>
+              <input type="text" class="form-control" id="create-first" name="first"/>
+              <label for="create-last">Last name</label>
+              <input type="text" class="form-control" id="create-last" name="last"/>
+              <label for="create-phone">Phone</label>
+              <input type="text" class="form-control" id="create-phone" name="phone"/>
+            </div>
+            <div class="col-6 output submit">
+              <button type="submit" class="btn btn-success">Create</button>
             </div>
           </div>
         </form>

@@ -1,0 +1,3 @@
+[submodule "MackerelClient"]
+	path = MackerelClient
+	url = https://github.com/WKUMakerspace/mackerel-client
